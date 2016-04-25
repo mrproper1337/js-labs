@@ -1,0 +1,21 @@
+{
+  "name": "labs-js",
+  "authors": [
+    "mrproper1337 <roodenko.nazar@gmail.com>"
+  ],
+  "description": "lab works",
+  "main": "index.hml",
+  "license": "no-licence",
+  "homepage": "--",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.3",
+    "bootstrap": "^3.3.6"
+  }
+}

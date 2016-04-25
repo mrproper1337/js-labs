@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <form class = "container" name="main">
+            <div class="row">
+                <div class="col-md-6 ">
+                    <br><br>
+                    <input placeholder="Функция f(x)" type="text" class="form-control" name="function">
+                    <br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <input placeholder="Левая граница" type="number" class="form-control"name="leftBorder">
+                    <br>
+                </div>
+                <div class="col-md-3">
+                    <input placeholder="Правая граница" type="number" class="form-control" name="rightBorder">
+                    <br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <input placeholder="Точность 10^-n" type="number" class="form-control" name="acc">
+                    <br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <input class="btn btn-default" type="button" value="Посчитать корень" name="calc">
+                </div>
+                <div class="col-md-9">
+                    <label class="control-label" id="result"></label>
+                </div>
+            </div>
+
+        </form>
+        <script src="../bower_components/jquery/dist/jquery.js"></script>
+        <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="scr9.js"></script>
+    </body>
+</html>
