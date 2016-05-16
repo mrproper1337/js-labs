@@ -29,14 +29,19 @@ var calc = function(circle,square){
     else
         alert('нет общих точек');
 };
+var getInput = function(){
+    for(var j = 0;j < 6;j ++){
+        input[j] = document.input[j].val();
+        if(input[j] < 0)throw Error('at: '+(j+1)+'\ninput numbers can\'t be < 0');
+    }
+    return input;
+};
+
+
 var check = true;
 do{
-    var sign = prompt("enter: \ncircle: ox,oy,R\nsquare: ox,oy,l");
-    var i = [];
-    if(sign && sign.split(' ').length === 6){
-
-        for(j = 0;j < 6;j ++)
-            i[j] = parseInt(sign.split(' ')[j]);
+    try{
+        //var i = getInput();
         var c = {//circle
             x:i[0],
             y:i[1],
@@ -59,9 +64,8 @@ do{
             .css('height', s.r+'px')
             .css('width', s.r+'px');
         calc(c,s);
-        //100 100 50 90 90 30
-        //150 150 20 100 100 100
+    }catch(e){
+        alert(e);
     }
-    else alert("wrong input");
     check = confirm('continue?');
 }while(check);
