@@ -1,3 +1,4 @@
+//интеграл бисекциальным методом
 var e = {};
 e.func = prompt('Введите функцию:');
 e.lb = parseFloat(prompt('Введите левую границу'));
@@ -24,8 +25,8 @@ if(e.func !== '' &&
     e.lb <= e.rb
         ){
     bisec(e);
-    alert('корень '+e.func+' на промежутке \n('+ lbo+' ; '+ rbo+') = '+e.lb);
-    }else alert('wrong input');
+    alert('корень '+e.func+' с границами \n('+ lbo+' ; '+ rbo+') = '+e.lb);
+    }else alert('неправилный ввод');
 //Math.pow(x,3) - x -2
 
 

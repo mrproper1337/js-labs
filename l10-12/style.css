@@ -1,7 +1,7 @@
 div .fig{
     height: 100px;
     width: 100px;
-    position: relative;
+    position: absolute;
 }
 
 #circle {

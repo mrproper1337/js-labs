@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 9</title>
+</head>
+<body>
+
+<script>
+    var string = [];
+    while(true){
+        var input = prompt('Введите исходные строки');
+        if(!input)break;
+        string.push(input);
+    }
+    var search = prompt('Введите строку для поиска');
+    var check = function(string,search){
+        return string.toLowerCase().indexOf(search.toLowerCase())!==-1;//сводим строки в один регистр и сравниваем
+    };
+    var d = 0;//сколько раз встретилась строка
+    for(var i = 0;i < search.length;i++){
+        if(check(string[i],search)){
+            alert(string[i]+' содержит строку '+search);
+            d++;
+        }
+    }
+    alert('строка встретилась '+d+' раз');
+
+</script>
+</body>
+</html>

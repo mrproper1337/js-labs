@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<script>
+    var sqr = function (x){return x*x;};
+    var pointDist = function(x1,y1,x2,y2){
+        return Math.sqrt(sqr(x1-x2)+sqr(y1-y2));
+    };
+    var getFigureOverlay = function(f){
+        return ([[f.x,f.y],[f.x+f.r,f.y],[f.x,f.y+f.r],[f.x+f.r,f.y+f.r]]);
+    };
+
+    var check = true;
+    do{
+        var sign = prompt("enter: \ncircle1: x,y,R\ncircle2: x,y,R");
+        var i = [];
+        if(sign && sign.split(' ').length === 6){
+            for(j = 0;j < 6;j ++)
+                i[j] = parseInt(sign.split(' ')[j]);
+            var c1 = {
+                x:i[0],
+                y:i[1],
+                r:i[2]
+            };
+            var c2 = {
+                x:i[3],
+                y:i[4],
+                r:i[5]
+            };
+
+            var br = c1.r,sr = c2.r;//bigger rad,smaller rad
+            if(c2.r>c1.r){
+                br = c2.r;
+                sr = c1.r;
+            }
+            if(pointDist(c1.x,c1.y,c2.x,c2.y) === c1.r+c2.r)
+                alert('круги имеют точку касания');
+            else if(pointDist(c1.x,c1.y,c2.x,c2.y) > c1.r+c2.r)
+                alert('нет общих точек');
+            else if(pointDist(c1.x,c1.y,c2.x,c2.y)+sr < br)
+                alert('один круг лежит внутри другого круга');
+            else
+                alert('круги пересекаются');
+
+        }
+        else alert("wrong input");
+        check = confirm('continue?');
+    }while(check);
+</script>
+</html>
