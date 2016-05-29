@@ -1,0 +1,15 @@
+div .fig{
+    height: 100px;
+    width: 100px;
+    position: absolute;
+}
+
+#circle {
+    border-radius: 100%;
+    background-color: #ef291a;
+    z-index: 2;
+}
+#square {
+    background-color: #34ef22;
+    z-index: 1;
+}

@@ -50,12 +50,12 @@ do{
         //let's draw it
         $('#circle')
             .css('left', (c.x- c.r)+'px')
-            .css('top', (c.y- c.r)+'px')
+            .css('topn', (c.y- c.r)+'px')
             .css('height', (c.r*2)+'px')
             .css('width', (c.r*2)+'px');
         $('#square')
             .css('left', s.x+'px')
-            .css('top', s.y+'px')
+            .css('topn', s.y+'px')
             .css('height', s.r+'px')
             .css('width', s.r+'px');
         calc(c,s);

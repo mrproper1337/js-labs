@@ -1,39 +1,99 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Lab 12</title>
-    </head>
-    <body>
-    <form name ="main">
-        <input type="text" name="word" readonly><br>
-        <input type="text" name="guess"><br>
-        <input type="text" name="attempts" readonly hidden><br>
-        <input type="button" name="check" value="Проверить">
-    </form>
-    <script>
-        var replaceChar = function(str,index,character){
-            return str.substr(0, index) + character + str.substr(index+character.length);
-        };
-        //слово "яблоко"
-        var GUESS = 'яблоко';
-        var attempt = 0;
-        document.main.word.value = '******';
-        document.main.check.onclick = function() {
-            try{
-                if(document.main.guess.value === '')
-                    throw Error('Ничего не введено');
-                if(document.main.guess.value.length !== 1)
-                    throw Error('Введено больше одного символа');
-                var g = document.main.guess.value;
-                console.log(GUESS.indexOf(g)+" ind");
-                if(GUESS.indexOf(g) !== -1)
-                    document.main.word.value = replaceChar(document.main.word.value,[GUESS.indexOf(g)],g);//[GUESS.indexOf(g)] = g[0];//подставляем найденую букву
-                attempt++;
-                //console.log(attempt);
-            }
-            catch(e){alert(e);}
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 12</title>
+</head>
+<body>
+<form name ="main">
+    Закодированое слово<br>
+    <input type="text" name="word" readonly><br>
+    Введите букву<br>
+    <input type="text" name="guess"><br>
+    Количество попыток<br>
+    <input type="text" name="attempts" readonly><br>
+    <input type="button" name="check" value="Проверить">
+</form>
+<script>
+    var replaceChar = function(str,index,character){
+        var res = '';
+        for(var j = 0;j<str.toString().length;j++){
+            if(j == index)res += character;
+            else res += str[j];
         }
-    </script>
-    </body>
+        return res;
+    };
+    //слово "qwerty"
+    var GUESS = 'qwerty';
+    var attempt = 0;
+    document.main.attempts.value = attempt;
+    document.main.word.value = '';
+    for(var i = 0;i < GUESS.length; i++)
+        document.main.word.value += '*';
+    document.main.check.onclick = function() {
+        try{
+            if(document.main.guess.value === '')
+                throw Error('Ничего не введено');
+            if(document.main.guess.value.length !== 1)
+                throw Error('Введено больше одного символа');
+            var g = document.main.guess.value;
+            //console.log(GUESS.indexOf(g)+" ind");
+            if(GUESS.indexOf(g) !== -1)
+                document.main.word.value = replaceChar(document.main.word.value,[GUESS.indexOf(g)],g);//подставляем найденую букву
+            attempt++;
+            document.main.attempts.value = attempt;
+        }
+        catch(e){alert(e);}
+    }
+</script>
+</body>
+</html><!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 12</title>
+</head>
+<body>
+<form name ="main">
+    Закодированое слово<br>
+    <input type="text" name="word" readonly><br>
+    Введите букву<br>
+    <input type="text" name="guess"><br>
+    Количество попыток<br>
+    <input type="text" name="attempts" readonly><br>
+    <input type="button" name="check" value="Проверить">
+</form>
+<script>
+    var replaceChar = function(str,index,character){
+        var res = '';
+        for(var j = 0;j<str.toString().length;j++){
+            if(j == index)res += character;
+            else res += str[j];
+        }
+        return res;
+    };
+    //слово "qwerty"
+    var GUESS = 'qwerty';
+    var attempt = 0;
+    document.main.attempts.value = attempt;
+    document.main.word.value = '';
+    for(var i = 0;i < GUESS.length; i++)
+        document.main.word.value += '*';
+    document.main.check.onclick = function() {
+        try{
+            if(document.main.guess.value === '')
+                throw Error('Ничего не введено');
+            if(document.main.guess.value.length !== 1)
+                throw Error('Введено больше одного символа');
+            var g = document.main.guess.value;
+            //console.log(GUESS.indexOf(g)+" ind");
+            if(GUESS.indexOf(g) !== -1)
+                document.main.word.value = replaceChar(document.main.word.value,[GUESS.indexOf(g)],g);//подставляем найденую букву
+            attempt++;
+            document.main.attempts.value = attempt;
+        }
+        catch(e){alert(e);}
+    }
+</script>
+</body>
 </html>

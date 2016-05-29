@@ -1,0 +1,17 @@
+<html>
+<meta charset="utf-8">
+<head>
+</head>
+<body>
+<form name="f">
+<input name="search">Поиск<br>
+<input type="button" value="OK" onClick="send()">
+</form>
+<script>
+function send()
+{
+	window.opener.sandc(document.f.search.value);
+}
+</script>
+</body>
+</html>
