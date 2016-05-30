@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>laba 11</title>
+    </head>
+    <body>
+        <p id="text">
+            Площа острова — 23,85 км². острів має приблизно прямокутну форму із розмірами 8x3 км.
+            Периметр острова близько 21 км.
+            Острів належить Коста-Ріці та адміністративно складає департамент № 10.
+            один з 16 департаментів кантону Пунтаренас провінції Пунтаренас.
+            Острів відомий тим, що, згідно поширеним легендам, на ньому було
+            сховано кілька величезних скарбів, що так і не були знайдені.
+        </p>
+        <script>
+            var text = document.getElementById('text');
+
+            //var i1 = prompt('Введите начальное предложение:');
+
+            var i2 = prompt('Введите предложение для замены:');
+            var arr = text.innerHTML.split('.');
+            try{
+                var index = prompt('Введите индекс предложения для замены:');
+                if(arr.length < index || index<=0)throw Error('нет такого предложения');
+                index--;
+                var res = '';
+                for(var i = 0;i<arr.length;i++){
+                    if(i == index)res += i2+'.';
+                    else res += arr[i];
+                }
+                text.innerHTML = res;
+            }catch(e){
+                alert(e);
+            }
+
+        </script>
+    </body>
+</html>
