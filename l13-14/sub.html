@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>lab 13</title>
+</head>
+<body>
+<form name="main">
+    <select name="sel">
+        <option value="1.jpeg">Монетка</option>
+        <option value="2.jpeg">Черепаха</option>
+        <option value="3.jpeg">Космос</option>
+    </select>
+    <input type="button" name="open" onclick ="send()" value="OK">
+</form>
+
+
+<script>
+    var send = function(){
+        var e = document.main.sel;
+        window.opener.changePic(e.options[e.selectedIndex].value);
+    };
+
+</script>
+</body>
+</html>

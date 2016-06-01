@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 12</title>
+</head>
+<body>
+<form name="main">
+    Вычисление тригонометрических функций <br>
+    Введите значение<input type="text" name="in"><br>
+    <input type="radio" name="vt" value="deg">градусы
+    <input type="radio" name="vt" value="rad">радианы<br>
+    Результат<input type="text" name="out" readonly><br>
+    <input type="button" name="sin" value="sin" onclick="c(Math.sin)">
+    <input type="button" name="cos" value="cos" onclick="c(Math.cos)">
+    <input type="button" name="tg" value="tg" onclick="c(Math.tan)">
+</form>
+<script>
+    var check = function(i){
+
+
+    };
+
+    var c  = function(func){
+        try{
+            var i = parseInt(document.main.in.value);
+            if(isNaN(i) || i<0)throw Error('неправильный ввод');
+            if(!i && func === Math.tan)
+                throw Error('tan(0) не существует');
+            if(document.main.vt.value==='deg')i*=Math.PI/180;
+            console.log(i);
+            document.main.out.value = func(i).toFixed(5);
+        }catch(e){alert(e);}
+
+    };
+</script>
+</body>
+</html>

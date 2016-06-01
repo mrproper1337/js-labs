@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>lab 13</title>
+</head>
+<body>
+<input type="button" name="open" onclick ="action()" value="Выбор изображения" >
+<div id="cn" hidden>
+    <img src="img/1.jpeg" name="pic">
+</div>
+<script>
+    var action = function(){
+        window.open("sub.html","_blank","width=300 height=300 top = 200 left = 200 status=yes,toolbar=no,menubar=no,location=no");
+    };
+    var changePic = function(n){
+        var cn = document.getElementById('cn');
+        //cn.style.visibility='visible';
+        document.pic.setAttribute('src','img/'+n);
+    };
+</script>
+</body>
+</html>
