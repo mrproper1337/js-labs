@@ -32,7 +32,7 @@
                 throw Error('tan(0) не существует');
             if(document.main.vt.value==='deg')i*=Math.PI/180;
             console.log(i);
-            document.main.out.value = func(i).toFixed(5);
+            document.main.out.value = func(i).toFixed(3);
         }catch(e){alert(e);}
 
     };

@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Lab 12</title>
+    </head>
+    <body>
+    <form name="main">
+        <textarea name="area" cols="30" rows="10"></textarea><br>
+        <input type="text" name="guess"><br>
+        <input type="text" name="result" readonly><br>
+        <input type="button" value="Определить" name="check">
+    </form>
+    <script>
+        document.main.check.onclick = function(){
+            try{
+                if(!document.main.area.value)throw Error('Пустое текстовое поле!');
+                else
+                if(!document.main.guess.value)throw Error('Пустое поле ввода');
+                else
+                if(document.main.guess.value.length > 1)throw Error('Больше одного символа!');
+                var check = 0;
+                for(var i = 0;i < document.main.area.value.length;i++)
+                    if(document.main.area.value[i] === document.main.guess.value[0])check++;
+                document.main.result.value = check;
+            }catch(e){
+                document.main.result.value = e;
+            }
+        }
+    </script>
+    </body>
+</html>
