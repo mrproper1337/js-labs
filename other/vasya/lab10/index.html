@@ -4,22 +4,29 @@
     <title>lab 9</title>
 </head>
 <body>
-<h1 >Дана програма вираховує інтеглал через площу фігури</h1>
+<h1 >Дана програма вираховує інтеграл через площу фігури</h1>
 <script type="text/javascript" >
-    var check = function(i){
+    var isEmpty = function(i){//проверка на пустую строку
         if(!i)throw Error('Пустая строка');
-        else return i;
+        return i;
     };
-    var checkNum = function(i,bgNull){
-        //if(isNaN(parseInt(check(i))) || (bgNull && i<=0))throw Error('неверный ввод');
-        //else return parseInt(i);
+    var isNumber = function(i){//проверка на число
+        var string = isEmpty(i);
+        var number = parseInt(string);
+        if(isNaN(number))throw Error('Введено не число');
+        return number;
+    };
+    var isPositive = function(i){//проверка на отрицательное число\ноль
+        var number = isNumber(i);
+        if(number <= 0)throw Error('Отрицательное число \\ ноль');
+        return number;
     };
     try{
         var a,b,h,n,func,res,x;
-        func=check('Введіть функцію ',' Math.pow(x,2)');
-        a=checkNum("Ліва границя:",false);
-        b=check("Права границя:",false);
-        n=check("Кількість проміжків на які ви розбиваєте відрізок ab: ",true);
+        func = isEmpty(prompt('Введіть функцію ',' Math.pow(x,2)'));
+        a = isNumber(prompt("Ліва границя:"));
+        b=isNumber(prompt("Права границя:"));
+        n=isPositive(prompt("Кількість проміжків на які ви розбиваєте відрізок ab: "));
         h=b-a;
         f = [];
         x=a;
@@ -40,7 +47,7 @@
                 "\nЛіва границя: "+a+"\nПрава границя:"+b+"\nКількість проміжків" +
                 " на які ви розбиваєте відрізок ab: "+n+"\nРезультат: "+res);
     }catch(e) {
-        //alert(e);
+        alert(e);
     }
 </script>
 
