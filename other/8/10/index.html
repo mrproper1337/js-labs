@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Lab 10</title>
+    </head>
+    <body>
+        <script>
+            var getNumber = function(str){
+                var i = parseInt(prompt(str));
+                if(isNaN(i))throw Error('Необходимо ввести целое число');
+                return i;
+            };
+            while(true){
+                try{
+                    var i1 = getNumber("Введите первое число ");
+                    var i2 = getNumber("Введите второе число");
+                    console.log('Вы ввели: 1) ' + i1 +'    2) ' + i2);
+                    while(true){
+                        switch(prompt("Введите одну из команд +,-, * или /")) {
+                            case "+":
+                                alert ("Ответ: " + (i1+i2));
+                                break;
+                            case "-":
+                                alert ("Ответ: " + (i1-i2));
+                                break;
+                            case "*":
+                                alert ("Ответ: " + (i1*i2));
+                                break;
+                            case "/":
+                                alert ("Ответ: " + (i1/i2));
+                                break;
+                            default:
+                                throw Error('Нет такого действия');
+                        }
+                        if(!confirm('Выбрать другое действие?'))break;
+                    }
+                }catch(e){alert(e)}
+                if(!confirm('Ввести новые данные?'))break;
+            }
+        </script>
+    </body>
+</html>
